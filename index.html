@@ -83,9 +83,21 @@
 
     <main id="main">
       <section class="hero reveal" id="hero">
-        <div class="container hero-grid">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="assets/vid/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-grid hero-content">
           <div>
-            <h1 class="hero-title">Cocktail &amp; KOOKAI</h1>
+            <h1 class="hero-title">Drink fatti come si deve.</h1>
             <p class="hero-subtitle">
               Cocktail bar a Castel d'Azzano — drink eccellenti, atmosfera intima,
               spazio esterno.
