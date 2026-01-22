@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Placeholder gallery">
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.06"/>
+      </feComponentTransfer>
+      <feBlend mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="#f3efe9"/>
+  <rect x="30" y="30" width="740" height="540" fill="#fff" stroke="#111" stroke-width="6" stroke-dasharray="18 10"/>
+  <g font-family="'Arial Black', sans-serif" fill="#111" text-anchor="middle">
+    <text x="400" y="300" font-size="72">GALLERY</text>
+    <text x="400" y="380" font-size="160">6</text>
+  </g>
+  <rect width="800" height="600" filter="url(#noise)" opacity="0.35"/>
+</svg>

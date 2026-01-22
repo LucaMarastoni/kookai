@@ -1,0 +1,42 @@
+[
+  {
+    "rating": 5,
+    "text": "Cocktail fatti bene, musica giusta. Ti senti a casa in un attimo.",
+    "timeAgo": "2 settimane fa"
+  },
+  {
+    "rating": 5,
+    "text": "Atmosfera intima, staff super. E il cortile è perfetto per l'aperitivo.",
+    "timeAgo": "1 mese fa"
+  },
+  {
+    "rating": 4,
+    "text": "Drink eccellenti e focacce che spaccano. Tornerò.",
+    "timeAgo": "3 settimane fa"
+  },
+  {
+    "rating": 5,
+    "text": "Posto curato, zero pose. Sbecolerie top per la fame notturna.",
+    "timeAgo": "5 giorni fa"
+  },
+  {
+    "rating": 5,
+    "text": "Negroni serio, gente accogliente. Vibe punk ma chill.",
+    "timeAgo": "2 mesi fa"
+  },
+  {
+    "rating": 4,
+    "text": "Prezzi onesti, qualità alta. Ottimo anche il mangiare.",
+    "timeAgo": "1 mese fa"
+  },
+  {
+    "rating": 5,
+    "text": "Spazio esterno da aperitivo lungo, dentro luci basse e musica giusta.",
+    "timeAgo": "4 settimane fa"
+  },
+  {
+    "rating": 5,
+    "text": "Staff gentile, cocktail creativi. A Castel d'Azzano mancava.",
+    "timeAgo": "6 settimane fa"
+  }
+]

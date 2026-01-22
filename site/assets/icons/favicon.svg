@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rumore Buono">
+  <rect width="64" height="64" fill="#111"/>
+  <rect x="6" y="6" width="52" height="52" fill="#f3efe9"/>
+  <rect x="12" y="12" width="40" height="40" fill="#e10600"/>
+  <text x="32" y="40" font-size="20" font-family="Arial Black, sans-serif" fill="#111" text-anchor="middle">RB</text>
+</svg>

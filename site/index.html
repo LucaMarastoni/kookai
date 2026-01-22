@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KOOKAI — Cocktail Bar Punk a Castel d'Azzano</title>
+    <meta
+      name="description"
+      content="Cocktail bar punk/DIY a Castel d'Azzano: drink eccellenti, atmosfera intima, spazio esterno e food serio."
+    />
+    <meta property="og:title" content="KOOKAI — Cocktail Bar Punk" />
+    <meta
+      property="og:description"
+      content="Cocktail fatti bene. Musica giusta. Gente di casa."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/og-cover.svg" />
+    <meta property="og:locale" content="it_IT" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Manrope:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Manrope:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-wa="390450000000">
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo" aria-label="KOOKAI">
+          <img
+            class="logo-mark"
+            src="assets/icons/icon.jpg"
+            alt="KOOKAI logo"
+            width="48"
+            height="48"
+            loading="eager"
+          />
+          <span class="logo-text">KOOKAI</span>
+        </div>
+        <nav class="site-nav" aria-label="Sezioni principali">
+          <a href="#drink">Drink</a>
+          <a href="#food">Food</a>
+          <a href="#eventi">Eventi</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Recensioni</a>
+          <a href="#location">Dove siamo</a>
+        </nav>
+        <div class="header-cta">
+          <a
+            class="btn btn-cta"
+            href="https://wa.me/390450000000?text=Ciao%21%20Vorrei%20prenotare%20un%20tavolo%20per%E2%80%A6"
+            target="_blank"
+            rel="noopener"
+            aria-label="Prenota su WhatsApp"
+            >Prenota</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero reveal" id="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1 class="hero-title">Cocktail &amp; KOOKAI</h1>
+            <p class="hero-subtitle">
+              Cocktail bar a Castel d'Azzano — drink eccellenti, atmosfera intima,
+              spazio esterno.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#eventi">Vedi eventi</a>
+              <div class="calendar-wrap">
+                <button
+                  class="btn btn-outline"
+                  id="add-calendar-btn"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Aggiungi a calendario
+                </button>
+                <div class="calendar-pop" id="calendar-pop" role="menu">
+                  <a
+                    class="btn btn-small"
+                    id="calendar-google"
+                    role="menuitem"
+                    target="_blank"
+                    rel="noopener"
+                    >Google Calendar</a
+                  >
+                  <a
+                    class="btn btn-small"
+                    id="calendar-ics"
+                    role="menuitem"
+                    download="rumore-buono-event.ics"
+                    >Scarica ICS</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="sticker-row">
+              <span class="sticker">Punk / DIY</span>
+              <span class="sticker">Aperitivo fuori</span>
+              <span class="sticker">Drink seri</span>
+            </div>
+          </div>
+          <aside class="paper-card hero-event" aria-live="polite">
+            <span class="tape">Prossimo evento</span>
+            <h3 data-next-title>Caricamento...</h3>
+            <p class="event-date" data-next-date></p>
+            <p data-next-lineup></p>
+            <a class="btn btn-small" href="#eventi">Vedi eventi</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section reveal" id="drink">
+        <div class="container">
+          <h2 class="section-title"><span>Signature</span> Drinks</h2>
+          <p class="section-intro">
+            Cocktail fatti bene. Zero fumo negli occhi. Solo gusto e carattere.
+          </p>
+          <div class="grid signature-grid" id="signature-grid"></div>
+          <div class="menu-cta">
+            <button class="btn btn-cta" id="open-menu" type="button">
+              Apri menu completo
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="food">
+        <div class="container">
+          <h2 class="section-title"><span>Food</span> da paura</h2>
+          <p class="section-intro">
+            Burger, focacce, sbecolerie. Ottimo anche il mangiare.
+          </p>
+          <div class="grid food-grid" id="food-grid"></div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="eventi">
+        <div class="container">
+          <h2 class="section-title"><span>Eventi</span> &amp; rumori</h2>
+          <p class="section-intro">
+            Programmazione DIY: dj set, live, mercato tape. Locandine vere, vibe
+            vero.
+          </p>
+          <div class="poster-wall" id="events-grid"></div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="gallery">
+        <div class="container">
+          <h2 class="section-title"><span>Gallery</span> istantanea</h2>
+          <p class="section-intro">Luci basse, bicchieri alti, gente di casa.</p>
+          <div class="gallery-grid">
+            <button class="gallery-item" data-full="assets/img/img1.png">
+              <img
+                src="assets/img/img1.png"
+                alt="KOOKAI — gallery 1"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img2.png">
+              <img
+                src="assets/img/img2.png"
+                alt="KOOKAI — gallery 2"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img3.png">
+              <img
+                src="assets/img/img3.png"
+                alt="KOOKAI — gallery 3"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img4.png">
+              <img
+                src="assets/img/img4.png"
+                alt="KOOKAI — gallery 4"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img5.png">
+              <img
+                src="assets/img/img5.png"
+                alt="KOOKAI — gallery 5"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img6.png">
+              <img
+                src="assets/img/img6.png"
+                alt="KOOKAI — gallery 6"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img7.png">
+              <img
+                src="assets/img/img7.png"
+                alt="KOOKAI — gallery 7"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img8.png">
+              <img
+                src="assets/img/img8.png"
+                alt="KOOKAI — gallery 8"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button class="gallery-item" data-full="assets/img/img9.png">
+              <img
+                src="assets/img/img9.png"
+                alt="KOOKAI — gallery 9"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+          <div class="menu-cta">
+            <a class="btn btn-outline" href="https://instagram.com" target="_blank" rel="noopener">
+              Apri Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="reviews">
+        <div class="container">
+          <h2 class="section-title"><span>Recensioni</span> reali</h2>
+          <p class="section-intro">
+            Dicono che qui si beve bene e si sta meglio. Noi ci crediamo.
+          </p>
+          <div class="grid reviews-grid" id="reviews-grid"></div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="location">
+        <div class="container">
+          <h2 class="section-title"><span>Dove</span> siamo</h2>
+          <div class="location-grid">
+            <div class="paper-card">
+              <p><strong>KOOKAI Cocktail Bar</strong></p>
+              <p>Via Marconi 66, 37060 Castel d'Azzano (VR), Italia</p>
+              <p>
+                <strong>Orari</strong><br />
+                Lunedì: Chiuso<br />
+                Martedì: 18:00–02:00<br />
+                Mercoledì: 18:00–02:00<br />
+                Giovedì: 18:00–02:00<br />
+                Venerdì: 18:00–02:00<br />
+                Sabato: 18:00–02:00<br />
+                Domenica: 18:00–00:00
+              </p>
+              <div class="contact-list">
+                <a class="btn contact-btn" href="tel:+390450000000">
+                  <img src="assets/icons/phone.svg" alt="" aria-hidden="true" />
+                  Chiama
+                </a>
+                <a
+                  class="btn contact-btn"
+                  href="https://wa.me/390450000000?text=Ciao%21%20Vorrei%20prenotare%20un%20tavolo%20per%E2%80%A6"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="assets/icons/whatsapp.svg" alt="" aria-hidden="true" />
+                  WhatsApp
+                </a>
+                <a
+                  class="btn contact-btn"
+                  href="https://maps.google.com/?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="assets/icons/map.svg" alt="" aria-hidden="true" />
+                  Google Maps
+                </a>
+              </div>
+              <p class="section-intro">No cookie / no profilazione.</p>
+            </div>
+            <div class="map-box">
+              <div class="map-placeholder" id="map-placeholder">
+                <p>Mappa in caricamento...</p>
+              </div>
+              <div
+                id="map-embed"
+                data-src="https://www.google.com/maps?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia&output=embed"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="#location">Contatti</a>
+        </div>
+        <div class="footer-tagline">KOOKAI — Bevi bene. Fai piano. Spacca.</div>
+      </div>
+    </footer>
+
+    <div
+      class="modal"
+      id="menu-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="menu-title"
+    >
+      <div class="paper-card modal-content">
+        <div class="modal-header">
+          <h3 id="menu-title">Menu completo</h3>
+          <button class="modal-close" data-close-menu aria-label="Chiudi menu">
+            ✕
+          </button>
+        </div>
+        <div class="menu-list" id="menu-list"></div>
+      </div>
+    </div>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="lightbox-title"
+    >
+      <div class="paper-card modal-content">
+        <div class="modal-header">
+          <h3 id="lightbox-title">Gallery</h3>
+          <button class="modal-close" data-close-lightbox aria-label="Chiudi gallery">
+            ✕
+          </button>
+        </div>
+        <img id="lightbox-image" alt="" />
+        <p id="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "KOOKAI",
+        "address": {
+          "@type": "PostalAddress",
+        "streetAddress": "Via Marconi 66",
+        "addressLocality": "Castel d'Azzano",
+        "addressRegion": "VR",
+        "postalCode": "37060",
+        "addressCountry": "IT"
+      },
+      "telephone": "+39 045 0000000",
+      "openingHours": [
+        "Mo closed",
+        "Tu 18:00-02:00",
+        "We 18:00-02:00",
+        "Th 18:00-02:00",
+        "Fr 18:00-02:00",
+        "Sa 18:00-02:00",
+        "Su 18:00-00:00"
+      ],
+        "sameAs": ["https://instagram.com"]
+      }
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

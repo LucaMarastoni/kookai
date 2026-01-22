@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-label="Collage element">
+  <rect width="600" height="600" fill="#f3efe9"/>
+  <circle cx="180" cy="210" r="140" fill="#e10600" opacity="0.85"/>
+  <rect x="280" y="280" width="240" height="220" fill="#f7c600" opacity="0.85"/>
+  <path d="M60 500 L260 420 L380 520 L540 430" stroke="#111" stroke-width="16" fill="none"/>
+</svg>

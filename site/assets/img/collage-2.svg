@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-label="Collage element">
+  <rect width="600" height="600" fill="#111"/>
+  <rect x="70" y="80" width="220" height="200" fill="#f3efe9" opacity="0.95"/>
+  <circle cx="380" cy="220" r="120" fill="#e10600" opacity="0.9"/>
+  <rect x="180" y="340" width="320" height="200" fill="#f7c600" opacity="0.9"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="Food placeholder">
+  <rect width="900" height="600" fill="#111"/>
+  <rect x="40" y="40" width="820" height="520" fill="#f3efe9" stroke="#e10600" stroke-width="8"/>
+  <g font-family="'Arial Black', sans-serif" fill="#111" text-anchor="middle">
+    <text x="450" y="280" font-size="60">FOOD</text>
+    <text x="450" y="380" font-size="120">burger</text>
+  </g>
+</svg>
