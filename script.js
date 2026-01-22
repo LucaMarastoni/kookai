@@ -20,6 +20,9 @@ const els = {
   calendarPop: document.getElementById("calendar-pop"),
   calendarGoogle: document.getElementById("calendar-google"),
   calendarIcs: document.getElementById("calendar-ics"),
+  navToggle: document.querySelector(".nav-toggle"),
+  navMenu: document.getElementById("site-menu"),
+  navOverlay: document.querySelector("[data-nav-overlay]"),
   lightbox: document.getElementById("lightbox"),
   lightboxImage: document.getElementById("lightbox-image"),
   lightboxCaption: document.getElementById("lightbox-caption"),
@@ -251,6 +254,72 @@ const setNextEvent = (events) => {
   setCalendarLinks(next);
 };
 
+const setupNavMenu = () => {
+  if (!els.navToggle || !els.navMenu) return;
+  const menuLinks = Array.from(els.navMenu.querySelectorAll("a"));
+  let lastFocus = null;
+
+  const setTabState = (open) => {
+    menuLinks.forEach((link) => {
+      link.setAttribute("tabindex", open ? "0" : "-1");
+    });
+  };
+
+  const openMenu = () => {
+    lastFocus = document.activeElement;
+    document.body.classList.add("menu-open");
+    els.navToggle.setAttribute("aria-expanded", "true");
+    els.navToggle.setAttribute("aria-label", "Chiudi menu");
+    els.navMenu.setAttribute("aria-hidden", "false");
+    if (els.navOverlay) {
+      els.navOverlay.setAttribute("aria-hidden", "false");
+    }
+    setTabState(true);
+    menuLinks[0]?.focus();
+  };
+
+  const closeMenu = () => {
+    document.body.classList.remove("menu-open");
+    els.navToggle.setAttribute("aria-expanded", "false");
+    els.navToggle.setAttribute("aria-label", "Apri menu");
+    els.navMenu.setAttribute("aria-hidden", "true");
+    if (els.navOverlay) {
+      els.navOverlay.setAttribute("aria-hidden", "true");
+    }
+    setTabState(false);
+    (lastFocus || els.navToggle)?.focus();
+  };
+
+  els.navToggle.addEventListener("click", () => {
+    const isOpen = document.body.classList.contains("menu-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  if (els.navOverlay) {
+    els.navOverlay.addEventListener("click", () => {
+      closeMenu();
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
+      closeMenu();
+    }
+  });
+
+  setTabState(false);
+};
+
 const setupMenuModal = () => {
   if (!els.menuModal) return;
   let lastFocus;
@@ -433,6 +502,7 @@ const init = async () => {
   }
 
   setupMenuModal();
+  setupNavMenu();
   setupLightbox();
   setupCalendar();
   setupScrollSpy();

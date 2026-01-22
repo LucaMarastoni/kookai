@@ -48,7 +48,7 @@
           />
           <span class="logo-text">KOOKAI</span>
         </div>
-        <nav class="site-nav" aria-label="Sezioni principali">
+        <nav class="site-nav nav-menu" id="site-menu" aria-label="Sezioni principali" aria-hidden="true">
           <a href="#drink">Drink</a>
           <a href="#food">Food</a>
           <a href="#eventi">Eventi</a>
@@ -66,8 +66,20 @@
             >Prenota</a
           >
         </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-controls="site-menu"
+          aria-expanded="false"
+          aria-label="Apri menu"
+        >
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </button>
       </div>
     </header>
+    <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
 
     <main id="main">
       <section class="hero reveal" id="hero">

@@ -169,6 +169,103 @@ button {
 .header-cta {
   display: flex;
   align-items: center;
+  margin-left: auto;
+}
+
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 48px;
+  height: 44px;
+  margin-left: var(--space-2);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(-1deg);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-toggle-line {
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 76px;
+  right: 1rem;
+  width: min(90vw, 340px);
+  margin: 0;
+  padding: var(--space-4);
+  display: grid;
+  gap: 0.7rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
+  clip-path: polygon(2% 0%, 100% 2%, 98% 100%, 0% 98%);
+  opacity: 0;
+  transform: translateY(-12px) rotate(-1deg);
+  pointer-events: none;
+  z-index: 60;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-menu a {
+  color: var(--ink);
+  background: var(--paper-strong);
+  border: 2px solid var(--ink);
+  padding: 0.45rem 0.6rem;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 12, 12, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 25;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+body.menu-open .nav-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.menu-open .nav-menu {
+  opacity: 1;
+  transform: translateY(0) rotate(-0.4deg);
+  pointer-events: auto;
+}
+
+body.menu-open .nav-toggle {
+  transform: rotate(1deg);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+body.menu-open .nav-toggle-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+body.menu-open .nav-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .nav-toggle-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .btn {
@@ -215,7 +312,11 @@ button {
   }
   .btn,
   .paper-card,
-  .gallery-item img {
+  .gallery-item img,
+  .nav-toggle,
+  .nav-menu,
+  .nav-overlay,
+  .nav-toggle-line {
     transition: none;
   }
   .js .reveal {
@@ -618,13 +719,10 @@ button {
   .header-inner {
     flex-wrap: wrap;
   }
-  .site-nav {
-    order: 3;
-    width: 100%;
-    margin: 0;
-    font-size: 0.75rem;
-    overflow-x: auto;
-    padding-bottom: 0.4rem;
+  .nav-menu {
+    left: 1rem;
+    right: 1rem;
+    width: auto;
   }
   .hero-actions {
     flex-direction: column;
@@ -633,8 +731,11 @@ button {
 }
 
 @media (max-width: 540px) {
-  .header-cta {
-    width: 100%;
-    justify-content: flex-start;
+  .nav-toggle {
+    width: 44px;
+    height: 40px;
+  }
+  .logo-mark {
+    height: 40px;
   }
 }
