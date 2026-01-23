@@ -663,6 +663,33 @@ body.menu-open .nav-toggle-line:nth-child(3) {
   text-transform: uppercase;
 }
 
+.site-credit {
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.privacy-content h4 {
+  font-family: var(--font-block);
+  margin: 1rem 0 0.4rem;
+}
+
+.privacy-content p {
+  margin: 0.4rem 0;
+}
+
+.privacy-content ul {
+  margin: 0.4rem 0 0.8rem;
+  padding-left: 1.2rem;
+}
+
+.privacy-content li {
+  margin-bottom: 0.3rem;
+}
+
 .modal,
 .lightbox {
   position: fixed;

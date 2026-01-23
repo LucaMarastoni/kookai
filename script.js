@@ -20,6 +20,10 @@ const els = {
   calendarPop: document.getElementById("calendar-pop"),
   calendarGoogle: document.getElementById("calendar-google"),
   calendarIcs: document.getElementById("calendar-ics"),
+  openPrivacy: document.getElementById("open-privacy"),
+  privacyModal: document.getElementById("privacy-modal"),
+  closePrivacy: document.querySelector("[data-close-privacy]"),
+  privacyTitle: document.getElementById("privacy-title"),
   navToggle: document.querySelector(".nav-toggle"),
   navMenu: document.getElementById("site-menu"),
   navOverlay: document.querySelector("[data-nav-overlay]"),
@@ -345,6 +349,40 @@ const setupMenuModal = () => {
   });
 };
 
+const setupPrivacyModal = () => {
+  if (!els.privacyModal || !els.openPrivacy) return;
+  let lastFocus;
+  const focusTitle = () => {
+    if (els.privacyTitle) {
+      els.privacyTitle.focus();
+    }
+  };
+  els.openPrivacy.addEventListener("click", (event) => {
+    event.preventDefault();
+    lastFocus = document.activeElement;
+    openModal(els.privacyModal);
+    focusTitle();
+  });
+  if (els.closePrivacy) {
+    els.closePrivacy.addEventListener("click", () => {
+      closeModal(els.privacyModal);
+      lastFocus?.focus();
+    });
+  }
+  els.privacyModal.addEventListener("click", (event) => {
+    if (event.target === els.privacyModal) {
+      closeModal(els.privacyModal);
+      lastFocus?.focus();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && els.privacyModal.classList.contains("open")) {
+      closeModal(els.privacyModal);
+      lastFocus?.focus();
+    }
+  });
+};
+
 const setupLightbox = () => {
   const items = document.querySelectorAll(".gallery-item");
   let lastFocus;
@@ -502,6 +540,7 @@ const init = async () => {
   }
 
   setupMenuModal();
+  setupPrivacyModal();
   setupNavMenu();
   setupLightbox();
   setupCalendar();
