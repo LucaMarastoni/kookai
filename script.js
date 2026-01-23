@@ -149,9 +149,9 @@ const renderSignature = (cocktails) => {
 const renderFood = (foodItems) => {
   const labels = ["HOT", "VEG?", "CLASSIC"];
   const images = [
-    "assets/img/food-burger.svg",
-    "assets/img/food-focaccia.svg",
-    "assets/img/food-snack.svg",
+    "assets/img/food-burger.png",
+    "assets/img/food-focaccia.png",
+    "assets/img/food-snack.png",
   ];
   const featured = [foodItems[0], foodItems[2], foodItems[4]].filter(Boolean);
   els.foodGrid.innerHTML = featured
