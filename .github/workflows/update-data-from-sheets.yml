@@ -20,9 +20,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Generate JSON (menu/events/reviews) from Google Sheets (published)
+      - name: Generate JSON (menu/events/reviews) from Google Sheets
         env:
-          SHEET_PUB_ID: ${{ secrets.SHEET_PUB_ID }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
         run: |
           python sheets_to_json.py
 
