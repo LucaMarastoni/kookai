@@ -122,6 +122,37 @@ button {
   padding: 0.75rem 0;
 }
 
+.brand-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.brand-logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.brand-logo:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+.brand-logo img {
+  display: block;
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  background: transparent;
+  border: 2px solid var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-1deg);
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -133,15 +164,6 @@ button {
 
 .logo-text {
   font-family: var(--font-block);
-}
-
-.logo-mark {
-  height: 46px;
-  width: auto;
-  display: block;
-  border: 2px solid var(--paper);
-  box-shadow: 4px 4px 0 var(--ink);
-  transform: rotate(-1deg);
 }
 
 .site-nav {
@@ -789,7 +811,7 @@ body.menu-open .nav-toggle-line:nth-child(3) {
     width: 44px;
     height: 40px;
   }
-  .logo-mark {
+  .brand-logo img {
     height: 40px;
   }
 }
