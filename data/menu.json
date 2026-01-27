@@ -1,5 +1,15 @@
 {
-  "cocktails": [],
+  "cocktails": [
+    {
+      "name": "Rusty Tape",
+      "desc": "Rum scuro, vermouth rosso, bitter e scorza d’arancia bruciata.",
+      "price": "9",
+      "tags": [
+        "strong",
+        "smoky"
+      ]
+    }
+  ],
   "beer": [],
   "food": []
 }
