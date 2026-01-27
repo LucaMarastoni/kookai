@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "rating": 5,
+    "text": "Cocktail creativi, atmosfera giusta e musica mai invadente. Tornerò spesso.",
+    "timeAgo": "2 settimane fa"
+  },
+  {
+    "rating": 5,
+    "text": "Posto super curato, staff gentile e vibe rilassata. Perfetto per l’aperitivo.",
+    "timeAgo": "1 mese fa"
+  },
+  {
+    "rating": 4,
+    "text": "Drink ottimi e focacce top. Prezzi onesti per la qualità.",
+    "timeAgo": "3 settimane fa"
+  },
+  {
+    "rating": 5,
+    "text": "Locale con personalità, luci basse e selezione musicale bellissima.",
+    "timeAgo": "5 giorni fa"
+  },
+  {
+    "rating": 5,
+    "text": "Bel mood, cocktail ben bilanciati e spazio esterno molto piacevole.",
+    "timeAgo": "2 mesi fa"
+  }
+]

@@ -2,14 +2,142 @@
   "cocktails": [
     {
       "name": "Rusty Tape",
-      "desc": "Rum scuro, vermouth rosso, bitter e scorza d’arancia bruciata.",
+      "desc": "Rum scuro, vermouth rosso, bitter e scorza d’arancia.",
       "price": "9",
       "tags": [
         "strong",
         "smoky"
       ]
+    },
+    {
+      "name": "Basement Fizz",
+      "desc": "Gin, limone, sciroppo al rosmarino, soda secca.",
+      "price": "8",
+      "tags": [
+        "fresh",
+        "citrus"
+      ]
+    },
+    {
+      "name": "Blackout Negroni",
+      "desc": "Gin, bitter, vermouth rosso, twist di cacao.",
+      "price": "9",
+      "tags": [
+        "bitter",
+        "classic"
+      ]
+    },
+    {
+      "name": "Broken Amp",
+      "desc": "Bourbon, miele, limone, zenzero e pepe nero.",
+      "price": "10",
+      "tags": [
+        "spicy",
+        "strong"
+      ]
+    },
+    {
+      "name": "Cherry Riot",
+      "desc": "Vodka, amarena, lime, splash di cola.",
+      "price": "8",
+      "tags": [
+        "fruity",
+        "easy"
+      ]
+    },
+    {
+      "name": "Low-Noise",
+      "desc": "Vermut bianco, tonic al basilico, cetriolo.",
+      "price": "7",
+      "tags": [
+        "low-abv",
+        "herbal"
+      ]
+    },
+    {
+      "name": "Tape Delay",
+      "desc": "Tequila, pompelmo, sale affumicato, agave.",
+      "price": "9",
+      "tags": [
+        "smoky",
+        "citrus"
+      ]
+    },
+    {
+      "name": "Dirty Violet",
+      "desc": "Gin, violetta, limone, albume, bitter.",
+      "price": "9",
+      "tags": [
+        "floral",
+        "silky"
+      ]
+    },
+    {
+      "name": "Subwoofer Sour",
+      "desc": "Whisky, limone, zucchero bruno, angostura.",
+      "price": "8",
+      "tags": [
+        "sour",
+        "classic"
+      ]
+    },
+    {
+      "name": "Cassette Mule",
+      "desc": "Vodka, lime, ginger beer, menta.",
+      "price": "8",
+      "tags": [
+        "fresh",
+        "spicy"
+      ]
     }
   ],
-  "beer": [],
-  "food": []
+  "beer": [
+    {
+      "name": "IPA Ribelle",
+      "desc": "Luppolata, amara, profumo agrumato.",
+      "price": "6"
+    },
+    {
+      "name": "Pils Off",
+      "desc": "Chiara, secca, facile da bere.",
+      "price": "5"
+    },
+    {
+      "name": "Red Tape Ale",
+      "desc": "Ambrata, note di caramello e malto tostato.",
+      "price": "6"
+    },
+    {
+      "name": "Stout Night",
+      "desc": "Scura, caffè, cacao e corpo pieno.",
+      "price": "6"
+    }
+  ],
+  "food": [
+    {
+      "name": "Burger Classico",
+      "desc": "Manzo, cheddar, cipolla caramellata, salsa house.",
+      "price": "9"
+    },
+    {
+      "name": "Burger Smoky",
+      "desc": "Manzo, bacon croccante, scamorza affumicata, BBQ.",
+      "price": "10"
+    },
+    {
+      "name": "Focaccia Veg",
+      "desc": "Verdure grigliate, stracciatella, pesto leggero.",
+      "price": "8"
+    },
+    {
+      "name": "Nachos Punk",
+      "desc": "Cheddar fuso, jalapeño, salsa fresca.",
+      "price": "7"
+    },
+    {
+      "name": "Sbecolerie Mix",
+      "desc": "Patate speziate + dip piccante e mayo.",
+      "price": "6"
+    }
+  ]
 }

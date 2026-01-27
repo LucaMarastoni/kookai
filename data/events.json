@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "id": "evt-001",
+    "title": "Noise Aperitivo: Vinyl B2B",
+    "dateISO": "2026-02-07",
+    "time": "19:30",
+    "genre": "post-punk / indie",
+    "description": "Selezione su vinile, luci basse, chiacchiere alte.",
+    "lineup": "Lena O. b2b Ratti",
+    "ticketUrl": "",
+    "igPostUrl": ""
+  },
+  {
+    "id": "evt-002",
+    "title": "Funked Friday",
+    "dateISO": "2026-02-21",
+    "time": "21:00",
+    "genre": "funk / boogie",
+    "description": "Bassi elastici e drink secchi. Si balla poco ma bene.",
+    "lineup": "DJ Pungolo",
+    "ticketUrl": "",
+    "igPostUrl": ""
+  },
+  {
+    "id": "evt-003",
+    "title": "Saturdays Are Loud",
+    "dateISO": "2026-03-07",
+    "time": "22:00",
+    "genre": "garage / punk",
+    "description": "Chitarre sporche, atmosfera intima, fuori c'è spazio.",
+    "lineup": "The Cutouts (live) + Marty",
+    "ticketUrl": "",
+    "igPostUrl": ""
+  }
+]
