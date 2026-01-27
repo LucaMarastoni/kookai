@@ -6,10 +6,8 @@ import re
 import sys
 import urllib.parse
 import urllib.request
-from typing import Dict, Optional
+from typing import Dict
 
-# Published (public) sheet ID from:
-# https://docs.google.com/spreadsheets/d/e/<SHEET_PUB_ID>/pubhtml
 SHEET_PUB_ID = os.environ.get("SHEET_PUB_ID", "").strip()
 
 OUT_MENU = "data/menu.json"
@@ -31,72 +29,54 @@ def http_get(url: str) -> str:
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode("utf-8")
 
-def get_pubhtml_url() -> str:
-    return f"https://docs.google.com/spreadsheets/d/e/{SHEET_PUB_ID}/pubhtml"
+def pub_base() -> str:
+    return f"https://docs.google.com/spreadsheets/d/e/{SHEET_PUB_ID}"
+
+def fetch_pubhtml() -> str:
+    return http_get(f"{pub_base()}/pubhtml")
 
 def build_gid_map(pubhtml: str) -> Dict[str, str]:
     """
-    Tries to map sheet visible names to gid by parsing pubhtml anchors.
-    This is a best-effort fallback.
+    Extracts gid + tab name pairs from the published HTML.
+    Works with common '...#gid=12345">TabName</a>' patterns.
     """
     gid_map: Dict[str, str] = {}
 
-    # Common pattern in pubhtml: ...#gid=12345">SheetName</a>
+    # Most common pattern
     for m in re.finditer(r'gid=(\d+)[^"]*">([^<]+)</a>', pubhtml, flags=re.IGNORECASE):
         gid = m.group(1).strip()
         name = m.group(2).strip()
-        if name and gid and name not in gid_map:
+        if name and gid:
+            gid_map[name] = gid
+
+    # Fallback pattern sometimes appears in JS blobs
+    # e.g. "gid":12345,"name":"events"
+    for m in re.finditer(r'"gid"\s*:\s*(\d+)\s*,\s*"name"\s*:\s*"([^"]+)"', pubhtml, flags=re.IGNORECASE):
+        gid = m.group(1).strip()
+        name = m.group(2).strip()
+        if name and gid:
             gid_map[name] = gid
 
     return gid_map
 
-def fetch_csv(tab_name: str) -> str:
-    if not SHEET_PUB_ID:
-        raise RuntimeError("SHEET_PUB_ID mancante (GitHub secret).")
+def normalize_key(s: str) -> str:
+    return s.strip().lower()
 
-    # Try multiple export endpoints (some published sheets behave differently)
-    base_e = f"https://docs.google.com/spreadsheets/d/e/{SHEET_PUB_ID}"
+def gid_for(tab_name: str, gid_map: Dict[str, str]) -> str:
+    # Exact match first
+    if tab_name in gid_map:
+        return gid_map[tab_name]
+    # Case-insensitive match
+    target = normalize_key(tab_name)
+    for k, v in gid_map.items():
+        if normalize_key(k) == target:
+            return v
+    found = ", ".join(sorted(gid_map.keys())) if gid_map else "(nessuno trovato)"
+    raise RuntimeError(f"Tab '{tab_name}' non trovato nel pubhtml. Tab trovati: {found}")
 
-    url_variants = [
-        # Variant 1: gviz with sheet name (works for many)
-        f"{base_e}/gviz/tq?{urllib.parse.urlencode({'tqx':'out:csv','sheet':tab_name})}",
-        # Variant 2: pub output=csv with sheet name (works in other cases)
-        f"{base_e}/pub?{urllib.parse.urlencode({'output':'csv','sheet':tab_name})}",
-    ]
-
-    last_err: Optional[Exception] = None
-    for url in url_variants:
-        try:
-            return http_get(url)
-        except Exception as e:
-            last_err = e
-
-    # Fallback: parse pubhtml and try by gid
-    try:
-        pubhtml = http_get(get_pubhtml_url())
-        gid_map = build_gid_map(pubhtml)
-
-        # Sometimes the anchor text might differ; try exact first,
-        # then case-insensitive match.
-        gid = gid_map.get(tab_name)
-        if not gid:
-            for k, v in gid_map.items():
-                if k.strip().lower() == tab_name.strip().lower():
-                    gid = v
-                    break
-
-        if gid:
-            gid_url = f"{base_e}/pub?{urllib.parse.urlencode({'output':'csv','gid':gid})}"
-            return http_get(gid_url)
-
-        # If we can't find gid, print what we did find to help debugging
-        found = ", ".join(sorted(gid_map.keys())) if gid_map else "(nessuno trovato nel pubhtml)"
-        raise RuntimeError(f"Tab '{tab_name}' non trovato via pubhtml. Tab trovati: {found}")
-
-    except Exception as e:
-        if last_err:
-            raise RuntimeError(f"Impossibile scaricare CSV per tab '{tab_name}'. Ultimo errore: {last_err}. Fallback error: {e}")
-        raise
+def fetch_csv_by_gid(gid: str) -> str:
+    url = f"{pub_base()}/pub?{urllib.parse.urlencode({'output':'csv','gid':gid})}"
+    return http_get(url)
 
 def must_headers(got, required, tab):
     missing = [h for h in required if h not in got]
@@ -119,11 +99,13 @@ def split_tags(x):
         return []
     return [t.strip() for t in x.split(",") if t.strip()]
 
-def read_tab(tab):
-    txt = fetch_csv(tab)
+def read_tab(tab_name: str, gid_map: Dict[str, str]):
+    gid = gid_for(tab_name, gid_map)
+    txt = fetch_csv_by_gid(gid)
+
     reader = csv.DictReader(txt.splitlines())
     headers = reader.fieldnames or []
-    must_headers(headers, TABS[tab], tab)
+    must_headers(headers, TABS[tab_name], tab_name)
 
     rows = []
     for row in reader:
@@ -142,11 +124,16 @@ def main():
         print("ERROR: SHEET_PUB_ID mancante (GitHub secret).", file=sys.stderr)
         sys.exit(1)
 
-    cocktails = read_tab("menu_cocktails")
-    beer = read_tab("menu_beer")
-    food = read_tab("menu_food")
-    events = read_tab("events")
-    reviews = read_tab("reviews")
+    pubhtml = fetch_pubhtml()
+    gid_map = build_gid_map(pubhtml)
+    if not gid_map:
+        raise RuntimeError("Impossibile estrarre i gid dal pubhtml. Assicurati che il foglio sia 'Pubblicato sul web'.")
+
+    cocktails = read_tab("menu_cocktails", gid_map)
+    beer = read_tab("menu_beer", gid_map)
+    food = read_tab("menu_food", gid_map)
+    events = read_tab("events", gid_map)
+    reviews = read_tab("reviews", gid_map)
 
     menu_json = {
         "cocktails": [
