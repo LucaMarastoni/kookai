@@ -1,25 +1,32 @@
 #!/usr/bin/env python3
-import csv, json, os, sys, urllib.parse, urllib.request
+import csv
+import json
+import os
+import sys
+import urllib.parse
+import urllib.request
 
-SHEET_ID = os.environ.get("SHEET_ID", "").strip()
+# Use the *published* (public) Sheets ID:
+# https://docs.google.com/spreadsheets/d/e/<SHEET_PUB_ID>/pubhtml
 SHEET_PUB_ID = os.environ.get("SHEET_PUB_ID", "").strip()
 
-OUT_MENU    = "data/menu.json"
-OUT_EVENTS  = "data/events.json"
+OUT_MENU = "data/menu.json"
+OUT_EVENTS = "data/events.json"
 OUT_REVIEWS = "data/reviews.json"
 
 TABS = {
-  "menu_cocktails": ["name","desc","price","tags"],
-  "menu_beer":      ["name","desc","price"],
-  "menu_food":      ["name","desc","price"],
-  "events":         ["id","title","dateISO","time","genre","description","lineup","ticketUrl","igPostUrl"],
-  "reviews":        ["rating","text","timeAgo"],
+    "menu_cocktails": ["name", "desc", "price", "tags"],
+    "menu_beer": ["name", "desc", "price"],
+    "menu_food": ["name", "desc", "price"],
+    "events": ["id", "title", "dateISO", "time", "genre", "description", "lineup", "ticketUrl", "igPostUrl"],
+    "reviews": ["rating", "text", "timeAgo"],
 }
 
 def fetch_csv(tab_name: str) -> str:
     if not SHEET_PUB_ID:
         raise RuntimeError("SHEET_PUB_ID mancante (GitHub secret).")
 
+    # Public published sheet export endpoint (no auth)
     base = f"https://docs.google.com/spreadsheets/d/e/{SHEET_PUB_ID}/gviz/tq"
     query = urllib.parse.urlencode({"tqx": "out:csv", "sheet": tab_name})
     url = f"{base}?{query}"
@@ -35,7 +42,8 @@ def must_headers(got, required, tab):
 
 def norm_price(x):
     x = (x or "").strip().replace(",", ".")
-    if x == "": return ""
+    if x == "":
+        return ""
     try:
         v = float(x)
         return str(int(v)) if v.is_integer() else str(v)
@@ -44,7 +52,8 @@ def norm_price(x):
 
 def split_tags(x):
     x = (x or "").strip()
-    if not x: return []
+    if not x:
+        return []
     return [t.strip() for t in x.split(",") if t.strip()]
 
 def read_tab(tab):
@@ -55,6 +64,7 @@ def read_tab(tab):
 
     rows = []
     for row in reader:
+        # Skip completely empty lines
         if not any((row.get(k) or "").strip() for k in headers):
             continue
         rows.append({k: (row.get(k) or "").strip() for k in headers})
@@ -66,53 +76,63 @@ def write_json(path, obj):
         json.dump(obj, f, ensure_ascii=False, indent=2)
 
 def main():
-    if not SHEET_ID:
-        print("ERROR: SHEET_ID mancante (GitHub secret).", file=sys.stderr)
+    if not SHEET_PUB_ID:
+        print("ERROR: SHEET_PUB_ID mancante (GitHub secret).", file=sys.stderr)
         sys.exit(1)
 
     cocktails = read_tab("menu_cocktails")
-    beer      = read_tab("menu_beer")
-    food      = read_tab("menu_food")
-    events    = read_tab("events")
-    reviews   = read_tab("reviews")
+    beer = read_tab("menu_beer")
+    food = read_tab("menu_food")
+    events = read_tab("events")
+    reviews = read_tab("reviews")
 
     menu_json = {
-      "cocktails": [
-        {"name": r["name"], "desc": r["desc"], "price": norm_price(r["price"]), "tags": split_tags(r["tags"])}
-        for r in cocktails if r.get("name","").strip()
-      ],
-      "beer": [
-        {"name": r["name"], "desc": r["desc"], "price": norm_price(r["price"])}
-        for r in beer if r.get("name","").strip()
-      ],
-      "food": [
-        {"name": r["name"], "desc": r["desc"], "price": norm_price(r["price"])}
-        for r in food if r.get("name","").strip()
-      ],
+        "cocktails": [
+            {
+                "name": r["name"],
+                "desc": r["desc"],
+                "price": norm_price(r["price"]),
+                "tags": split_tags(r["tags"]),
+            }
+            for r in cocktails
+            if r.get("name", "").strip()
+        ],
+        "beer": [
+            {"name": r["name"], "desc": r["desc"], "price": norm_price(r["price"])}
+            for r in beer
+            if r.get("name", "").strip()
+        ],
+        "food": [
+            {"name": r["name"], "desc": r["desc"], "price": norm_price(r["price"])}
+            for r in food
+            if r.get("name", "").strip()
+        ],
     }
 
     events_json = [
-      {
-        "id": r["id"],
-        "title": r["title"],
-        "dateISO": r["dateISO"],
-        "time": r["time"],
-        "genre": r["genre"],
-        "description": r["description"],
-        "lineup": r["lineup"],
-        "ticketUrl": r["ticketUrl"],
-        "igPostUrl": r["igPostUrl"],
-      }
-      for r in events if r.get("id","").strip()
+        {
+            "id": r["id"],
+            "title": r["title"],
+            "dateISO": r["dateISO"],
+            "time": r["time"],
+            "genre": r["genre"],
+            "description": r["description"],
+            "lineup": r["lineup"],
+            "ticketUrl": r["ticketUrl"],
+            "igPostUrl": r["igPostUrl"],
+        }
+        for r in events
+        if r.get("id", "").strip()
     ]
 
     reviews_json = [
-      {
-        "rating": int(r["rating"]) if (r.get("rating","").strip().isdigit()) else r["rating"],
-        "text": r["text"],
-        "timeAgo": r["timeAgo"],
-      }
-      for r in reviews if r.get("text","").strip()
+        {
+            "rating": int(r["rating"]) if r.get("rating", "").strip().isdigit() else r["rating"],
+            "text": r["text"],
+            "timeAgo": r["timeAgo"],
+        }
+        for r in reviews
+        if r.get("text", "").strip()
     ]
 
     write_json(OUT_MENU, menu_json)
