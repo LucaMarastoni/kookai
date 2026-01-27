@@ -3,7 +3,7 @@ name: Update JSON from Google Sheets
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *" # ogni 30 minuti
+    - cron: "0 9 * * *" # ogni giorno alle 09:00 UTC
 
 permissions:
   contents: write
