@@ -2,6 +2,7 @@
 import csv, json, os, sys, urllib.parse, urllib.request
 
 SHEET_ID = os.environ.get("SHEET_ID", "").strip()
+SHEET_PUB_ID = os.environ.get("SHEET_PUB_ID", "").strip()
 
 OUT_MENU    = "data/menu.json"
 OUT_EVENTS  = "data/events.json"
@@ -16,10 +17,14 @@ TABS = {
 }
 
 def fetch_csv(tab_name: str) -> str:
-    base = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq"
-    query = urllib.parse.urlencode({"tqx":"out:csv","sheet":tab_name})
+    if not SHEET_PUB_ID:
+        raise RuntimeError("SHEET_PUB_ID mancante (GitHub secret).")
+
+    base = f"https://docs.google.com/spreadsheets/d/e/{SHEET_PUB_ID}/gviz/tq"
+    query = urllib.parse.urlencode({"tqx": "out:csv", "sheet": tab_name})
     url = f"{base}?{query}"
-    req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode("utf-8")
 
