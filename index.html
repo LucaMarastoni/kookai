@@ -3,77 +3,84 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>KOOKAI — Cocktail Bar a Castel d'Azzano</title>
+    <title>Cocktail bar Castel d'Azzano | KOOKAI Verona</title>
     <meta
       name="description"
-      content="Cocktail bar DIY a Castel d'Azzano: drink eccellenti, atmosfera intima, spazio esterno e food serio."
+      content="KOOKAI, cocktail bar a Castel d'Azzano vicino Verona: aperitivo, drink artigianali e musica. Prenota il tuo tavolo, chiamaci ora."
     />
-    <meta property="og:title" content="KOOKAI — Cocktail Bar" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://lucamarastoni.github.io/kookai/" />
+    <meta name="theme-color" content="#060606" />
+
+    <meta property="og:title" content="Cocktail bar Castel d'Azzano | KOOKAI Verona" />
     <meta
       property="og:description"
-      content="Cocktail fatti bene. Musica giusta. Gente di casa."
+      content="Aperitivo, drink artigianali e bar con musica a Castel d'Azzano, Verona. Scopri KOOKAI e prenota subito."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/img/og-cover.svg" />
+    <meta property="og:url" content="https://lucamarastoni.github.io/kookai/" />
+    <meta property="og:site_name" content="KOOKAI Cocktail Bar" />
+    <meta
+      property="og:image"
+      content="https://lucamarastoni.github.io/kookai/assets/img/og-cover.svg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KOOKAI Cocktail Bar a Castel d'Azzano" />
     <meta property="og:locale" content="it_IT" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cocktail bar Castel d'Azzano | KOOKAI Verona" />
+    <meta
+      name="twitter:description"
+      content="KOOKAI: cocktail bar a Castel d'Azzano vicino Verona, con aperitivo, drink artigianali e atmosfera con musica."
+    />
+    <meta
+      name="twitter:image"
+      content="https://lucamarastoni.github.io/kookai/assets/img/og-cover.svg"
+    />
 
     <link rel="icon" href="assets/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="preload" href="assets/vid/hero.mp4" as="video" type="video/mp4" />
+    <link rel="preload" href="assets/img/img1.png" as="image" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Manrope:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
-    />
-    <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Manrope:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body data-wa="390450000000">
-    <a class="skip-link" href="#main">Salta al contenuto</a>
+  <body id="top">
+    <a class="skip-link" href="#hero">Salta al contenuto</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand-logo logo" href="index.html" aria-label="Torna alla home">
-          <img
-            class="logo-mark"
-            src="assets/icons/icon.jpg"
-            alt="KOOKAI logo"
-            width="48"
-            height="48"
-            loading="eager"
-          />
-          <span class="logo-text">KOOKAI</span>
+        <a class="brand" href="#top" aria-label="Torna in cima">
+          <img src="assets/icons/icon.jpg" alt="Logo KOOKAI" width="40" height="40" loading="eager" />
+          <span>KOOKAI</span>
         </a>
-        <nav class="site-nav nav-menu" id="site-menu" aria-label="Sezioni principali" aria-hidden="true">
-          <a href="#drink">Drink</a>
-          <a href="#food">Food</a>
-          <a href="#eventi">Eventi</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#reviews">Recensioni</a>
-          <a href="#location">Dove siamo</a>
-        </nav>
-        <div class="header-cta">
-          <a
-            class="btn btn-cta"
-            href="https://wa.me/390450000000?text=Ciao%21%20Vorrei%20prenotare%20un%20tavolo%20per%E2%80%A6"
-            target="_blank"
-            rel="noopener"
-            aria-label="Prenota su WhatsApp"
-            >Prenota</a
-          >
-        </div>
+
+        <a
+          class="btn btn-primary header-book"
+          href="tel:+393457058433"
+          aria-label="Prenota chiamando"
+          >PRENOTA</a
+        >
+
         <button
           class="nav-toggle"
           type="button"
-          aria-controls="site-menu"
+          data-nav-toggle
+          aria-controls="site-nav"
           aria-expanded="false"
           aria-label="Apri menu"
         >
@@ -81,411 +88,304 @@
           <span class="nav-toggle-line"></span>
           <span class="nav-toggle-line"></span>
         </button>
+
+        <nav class="site-nav" id="site-nav" data-nav aria-label="Sezioni principali">
+          <a href="#orari">Orari</a>
+          <a href="#mappa">Mappa</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#recensioni">Recensioni</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
       </div>
     </header>
-    <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
 
-    <main id="main">
+    <main>
       <section class="hero reveal" id="hero">
-        <video
-          class="hero-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          aria-hidden="true"
-        >
+        <video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="assets/img/img1.png" aria-hidden="true">
           <source src="assets/vid/hero.mp4" type="video/mp4" />
         </video>
         <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="container hero-grid hero-content">
+
+        <div class="container hero-content">
+          <p class="hero-kicker">KOOKAI Cocktail Bar</p>
+          <h1>Cocktail bar a Castel d'Azzano: drink fatti come si deve.</h1>
+          <p class="hero-copy">
+            KOOKAI, cocktail bar a Castel d'Azzano alle porte di Verona, ideale per aperitivo a
+            Castel d'Azzano, drink artigianali e serate in bar con musica.
+          </p>
+          <p class="hero-copy">
+            Dal primo sorso all'ultimo brindisi trovi atmosfera calda, servizio rapido e cocktail
+            bilanciati con cura.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="tel:+393457058433"
+              >PRENOTA ORA</a
+            >
+            <a class="btn btn-ghost" href="#mappa">VEDI DOVE SIAMO</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="orari">
+        <div class="container">
+          <h2>Orari di apertura</h2>
+          <p class="section-lead">Scegli la sera giusta e passa da noi.</p>
+          <h3 class="section-subtitle">Orari settimanali KOOKAI</h3>
+
+          <div class="hours-card" role="list" aria-label="Orari settimanali">
+            <div class="hours-row" role="listitem">
+              <span>Lunedi</span>
+              <strong>Chiuso</strong>
+            </div>
+            <div class="hours-row" role="listitem">
+              <span>Mar-Gio</span>
+              <strong>18:00-01:00</strong>
+            </div>
+            <div class="hours-row" role="listitem">
+              <span>Ven-Sab</span>
+              <strong>18:00-02:00</strong>
+            </div>
+            <div class="hours-row" role="listitem">
+              <span>Domenica</span>
+              <strong>17:30-00:00</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="mappa">
+        <div class="container map-layout">
           <div>
-            <h1 class="hero-title">Drink fatti come si deve.</h1>
-            <p class="hero-subtitle">
-              Cocktail bar a Castel d'Azzano — drink eccellenti, atmosfera intima,
-              spazio esterno.
+            <h2>Dove siamo</h2>
+            <h3 class="section-subtitle">Cocktail bar a Castel d'Azzano vicino Verona</h3>
+            <p class="section-lead">
+              KOOKAI Cocktail Bar, Via Marconi 66, 37060 Castel d'Azzano (VR).
             </p>
-            <div class="hero-actions">
-              <a class="btn" href="#eventi">Vedi eventi</a>
-              <div class="calendar-wrap">
-                <button
-                  class="btn btn-outline"
-                  id="add-calendar-btn"
-                  type="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Aggiungi a calendario
-                </button>
-                <div class="calendar-pop" id="calendar-pop" role="menu">
-                  <a
-                    class="btn btn-small"
-                    id="calendar-google"
-                    role="menuitem"
-                    target="_blank"
-                    rel="noopener"
-                    >Google Calendar</a
-                  >
-                  <a
-                    class="btn btn-small"
-                    id="calendar-ics"
-                    role="menuitem"
-                    download="rumore-buono-event.ics"
-                    >Scarica ICS</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="sticker-row">
-              <span class="sticker">Punk / DIY</span>
-              <span class="sticker">Aperitivo fuori</span>
-              <span class="sticker">Drink seri</span>
-            </div>
+            <a
+              class="btn btn-ghost"
+              href="https://maps.google.com/?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia"
+              target="_blank"
+              rel="noopener"
+              >Apri su Google Maps</a
+            >
           </div>
-          <aside class="paper-card hero-event" aria-live="polite">
-            <span class="tape">Prossimo evento</span>
-            <h3 data-next-title>Caricamento...</h3>
-            <p class="event-date" data-next-date></p>
-            <p data-next-lineup></p>
-            <a class="btn btn-small" href="#eventi">Vedi eventi</a>
-          </aside>
-        </div>
-      </section>
 
-      <section class="section reveal" id="drink">
-        <div class="container">
-          <h2 class="section-title"><span>Signature</span> Drinks</h2>
-          <p class="section-intro">
-            Cocktail fatti bene. Zero fumo negli occhi. Solo gusto e carattere.
-          </p>
-          <div class="grid signature-grid" id="signature-grid"></div>
-          <div class="menu-cta">
-            <button class="btn btn-cta" id="open-menu" type="button">
-              Apri menu completo
-            </button>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia&output=embed"
+              title="Mappa KOOKAI"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
           </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="food">
-        <div class="container">
-          <h2 class="section-title"><span>Food</span> da paura</h2>
-          <p class="section-intro">
-            Burger, focacce, sbecolerie. Ottimo anche il mangiare.
-          </p>
-          <div class="grid food-grid" id="food-grid"></div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="eventi">
-        <div class="container">
-          <h2 class="section-title"><span>Eventi</span> &amp; rumori</h2>
-          <p class="section-intro">
-            Programmazione DIY: dj set, live, mercato tape. Locandine vere, vibe
-            vero.
-          </p>
-          <div class="poster-wall" id="events-grid"></div>
         </div>
       </section>
 
       <section class="section reveal" id="gallery">
         <div class="container">
-          <h2 class="section-title"><span>Gallery</span> istantanea</h2>
-          <p class="section-intro">Luci basse, bicchieri alti, gente di casa.</p>
+          <h2>Gallery</h2>
+          <h3 class="section-subtitle">Aperitivo e drink artigianali in foto</h3>
+          <p class="section-lead">Una selezione dell'atmosfera KOOKAI.</p>
+
           <div class="gallery-grid">
-            <button class="gallery-item" data-full="assets/img/img1.png">
-              <img
-                src="assets/img/img1.png"
-                alt="KOOKAI — gallery 1"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img2.png">
-              <img
-                src="assets/img/img2.png"
-                alt="KOOKAI — gallery 2"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img3.png">
-              <img
-                src="assets/img/img3.png"
-                alt="KOOKAI — gallery 3"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img4.png">
-              <img
-                src="assets/img/img4.png"
-                alt="KOOKAI — gallery 4"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img5.png">
-              <img
-                src="assets/img/img5.png"
-                alt="KOOKAI — gallery 5"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img6.png">
-              <img
-                src="assets/img/img6.png"
-                alt="KOOKAI — gallery 6"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img7.png">
-              <img
-                src="assets/img/img7.png"
-                alt="KOOKAI — gallery 7"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img8.png">
-              <img
-                src="assets/img/img8.png"
-                alt="KOOKAI — gallery 8"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-            <button class="gallery-item" data-full="assets/img/img9.png">
-              <img
-                src="assets/img/img9.png"
-                alt="KOOKAI — gallery 9"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-          </div>
-          <div class="menu-cta">
-            <a class="btn btn-outline" href="https://instagram.com" target="_blank" rel="noopener">
-              Apri Instagram
-            </a>
+            <figure class="gallery-item">
+              <img src="assets/img/img1.png" alt="Cocktail servito al bancone KOOKAI a Castel d'Azzano" loading="lazy" decoding="async" width="1810" height="1786" />
+              <figcaption>Signature drinks</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/img/img2.png" alt="Bancone cocktail bar KOOKAI vicino Verona" loading="lazy" decoding="async" width="1810" height="1786" />
+              <figcaption>Bar mood</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/img/img3.png" alt="Drink artigianale KOOKAI con garnish agrumato" loading="lazy" decoding="async" width="1444" height="1572" />
+              <figcaption>Iconic serves</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/img/img4.png" alt="Aperitivo serale a Castel d'Azzano da KOOKAI" loading="lazy" decoding="async" width="1444" height="1494" />
+              <figcaption>Notti KOOKAI</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/img/img5.png" alt="Cocktail artigianale con ghiaccio cristallino a Verona sud" loading="lazy" decoding="async" width="1444" height="1494" />
+              <figcaption>Craft details</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/img/img6.png" alt="Interno KOOKAI bar con musica a Castel d'Azzano" loading="lazy" decoding="async" width="1834" height="1724" />
+              <figcaption>Atmosfera</figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="reviews">
+      <section class="section reveal" id="recensioni">
         <div class="container">
-          <h2 class="section-title"><span>Recensioni</span> reali</h2>
-          <p class="section-intro">
-            Dicono che qui si beve bene e si sta meglio. Noi ci crediamo.
-          </p>
-          <div class="grid reviews-grid" id="reviews-grid"></div>
-        </div>
-      </section>
+          <h2>Recensioni</h2>
+          <h3 class="section-subtitle">Opinioni reali dei clienti</h3>
+          <p class="section-lead">Feedback reale, senza filtri.</p>
 
-      <section class="section reveal" id="location">
-        <div class="container">
-          <h2 class="section-title"><span>Dove</span> siamo</h2>
-          <div class="location-grid">
-            <div class="paper-card">
-              <p><strong>KOOKAI Cocktail Bar</strong></p>
-              <p>Via Marconi 66, 37060 Castel d'Azzano (VR), Italia</p>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <h3 class="review-title">Recensione Google</h3>
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
               <p>
-                <strong>Orari</strong><br />
-                Lunedì: Chiuso<br />
-                Martedì: 18:00–02:00<br />
-                Mercoledì: 18:00–02:00<br />
-                Giovedì: 18:00–02:00<br />
-                Venerdì: 18:00–02:00<br />
-                Sabato: 18:00–02:00<br />
-                Domenica: 18:00–00:00
+                Cocktail bar unico a Castel d'Azzano. Locale curato con ampia scelta tra cocktail,
+                birre e altro. Ottimo anche il mangiare, con burger, focacce e sbecolerie. Max e il
+                team sono sempre sul pezzo.
               </p>
-              <div class="contact-list">
-                <a class="btn contact-btn" href="tel:+390450000000">
-                  <img src="assets/icons/phone.svg" alt="" aria-hidden="true" />
-                  Chiama
-                </a>
-                <a
-                  class="btn contact-btn"
-                  href="https://wa.me/390450000000?text=Ciao%21%20Vorrei%20prenotare%20un%20tavolo%20per%E2%80%A6"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img src="assets/icons/whatsapp.svg" alt="" aria-hidden="true" />
-                  WhatsApp
-                </a>
-                <a
-                  class="btn contact-btn"
-                  href="https://maps.google.com/?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img src="assets/icons/map.svg" alt="" aria-hidden="true" />
-                  Google Maps
-                </a>
-              </div>
-              <p class="section-intro">No cookie / no profilazione.</p>
-            </div>
-            <div class="map-box">
-              <div class="map-placeholder" id="map-placeholder">
-                <p>Mappa in caricamento...</p>
-              </div>
-              <div
-                id="map-embed"
-                data-src="https://www.google.com/maps?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia&output=embed"
-              ></div>
+            </article>
+
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
+              <p>
+                Vengo da anni e non sono mai mancate cordialita e professionalita. I drink sono
+                qualitativamente eccellenti e l'atmosfera del posto rende molto piacevole gustarli.
+              </p>
+            </article>
+
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
+              <p>
+                Luogo di ritrovo per me e i miei amici. Max e i ragazzi sono sempre gentilissimi,
+                simpatici e professionali.
+              </p>
+            </article>
+
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
+              <p>
+                Posto molto carino per un dopo cena appena fuori Verona centro. Tisane e cocktail
+                ottimi, prezzi adeguati. Atmosfera chill e intima.
+              </p>
+            </article>
+
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
+              <p>
+                Un piccolo angolo di paradiso a pochi minuti dal centro di Verona, un luogo dove
+                bere bene e sentirsi a casa. Max e i ragazzi ti fanno sentire subito il benvenuto.
+                Uno dei migliori cocktail bar della citta.
+              </p>
+            </article>
+
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
+              <p>
+                Ambiente allegro, molto spazio all'esterno e perfetto per l'aperitivo. Prezzo a
+                persona corretto rispetto alla qualita dei drink e del servizio.
+              </p>
+            </article>
+
+            <article class="review-card">
+              <p class="review-stars" aria-label="5 stelle">⭐⭐⭐⭐⭐</p>
+              <p>
+                Come sentirsi a casa. Drink ottimi, personale super gentile e professionale, locale
+                curato e molto particolare. Siamo stati benissimo e torneremo sicuramente.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-cta reveal" id="contatti">
+        <div class="container">
+          <div class="final-cta">
+            <h2>Ti aspettiamo da KOOKAI</h2>
+            <p>Prenota ora e trova il tuo tavolo in pochi secondi.</p>
+
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary"
+                href="tel:+393457058433"
+                >Prenota</a
+              >
+              <a
+                class="btn btn-ghost"
+                href="https://wa.me/393457058433?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20da%20KOOKAI"
+                target="_blank"
+                rel="noopener"
+                >WhatsApp</a
+              >
+              <a class="btn btn-ghost" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-links">
-          <a href="#" id="open-privacy">Privacy</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-          <a href="#location">Contatti</a>
-        </div>
-        <div class="footer-tagline">KOOKAI — Bevi bene. Fai piano. Spacca.</div>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="footer-brand" href="#top" aria-label="Torna in cima">
+          <img src="assets/icons/icon.jpg" alt="Logo KOOKAI" width="28" height="28" loading="lazy" />
+          <span>KOOKAI</span>
+        </a>
+        <p>Via Marconi 66, 37060 Castel d'Azzano (VR)</p>
+        <a href="tel:+393457058433">345 7058433</a>
+        <p class="copyright">© 2026 KOOKAI. Tutti i diritti riservati.</p>
       </div>
     </footer>
-    <div class="site-credit">
-      <a href="https://lucamarastoni.eu" target="_blank" rel="noopener">
-        Realizzato da Luca Marastoni Digital Solutions
-      </a>
-    </div>
-
-    <div
-      class="modal"
-      id="menu-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-hidden="true"
-      aria-labelledby="menu-title"
-    >
-      <div class="paper-card modal-content">
-        <div class="modal-header">
-          <h3 id="menu-title">Menu completo</h3>
-          <button class="modal-close" data-close-menu aria-label="Chiudi menu">
-            ✕
-          </button>
-        </div>
-        <div class="menu-list" id="menu-list"></div>
-      </div>
-    </div>
-
-    <div
-      class="modal"
-      id="privacy-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-hidden="true"
-      aria-labelledby="privacy-title"
-    >
-      <div class="paper-card modal-content">
-        <div class="modal-header">
-          <h3 id="privacy-title" tabindex="-1">Privacy Policy</h3>
-          <button class="modal-close" data-close-privacy aria-label="Chiudi privacy">
-            ✕
-          </button>
-        </div>
-        <div class="privacy-content">
-          <p>
-            Questa informativa descrive come KOOKAI tratta i dati personali per il presente
-            sito vetrina. Il sito non utilizza cookie di profilazione né attività pubblicitarie.
-          </p>
-          <h4>Titolare del trattamento</h4>
-          <p>
-            Titolare: KOOKAI<br />
-            Email: [INSERISCI EMAIL]
-          </p>
-          <h4>Dati trattati</h4>
-          <ul>
-            <li>Dati di navigazione tecnici (log server/hosting), in forma aggregata.</li>
-            <li>Dati forniti volontariamente dall’utente (messaggi, richieste, prenotazioni).</li>
-          </ul>
-          <h4>Finalità e base giuridica</h4>
-          <ul>
-            <li>Rispondere a richieste e prenotazioni: interesse legittimo.</li>
-            <li>Contatto via WhatsApp/telefono/email: consenso dell’utente.</li>
-            <li>Sicurezza e prevenzione abusi: interesse legittimo.</li>
-          </ul>
-          <h4>Risorse esterne e terze parti</h4>
-          <p>
-            Il sito può includere collegamenti o integrazioni a servizi esterni (es. Google Maps,
-            Google Fonts, Instagram, WhatsApp, Google Calendar). L’uso di tali servizi può
-            comportare il trasferimento di dati verso terze parti e/o Paesi extra-UE. Il trattamento
-            avviene secondo le rispettive informative.
-          </p>
-          <h4>Conservazione</h4>
-          <p>
-            I dati sono conservati per il tempo necessario a gestire la richiesta e adempiere
-            ad obblighi di legge o sicurezza.
-          </p>
-          <h4>Diritti dell’interessato</h4>
-          <p>
-            L’utente può esercitare i diritti previsti dagli artt. 15–22 del GDPR (accesso,
-            rettifica, cancellazione, limitazione, opposizione, portabilità). Per esercitarli,
-            contattare il Titolare.
-          </p>
-          <h4>Minori</h4>
-          <p>Il sito non è destinato a minori di 16 anni.</p>
-          <h4>Aggiornamenti</h4>
-          <p>Ultimo aggiornamento: 23 gennaio 2026.</p>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="lightbox"
-      id="lightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-hidden="true"
-      aria-labelledby="lightbox-title"
-    >
-      <div class="paper-card modal-content">
-        <div class="modal-header">
-          <h3 id="lightbox-title">Gallery</h3>
-          <button class="modal-close" data-close-lightbox aria-label="Chiudi gallery">
-            ✕
-          </button>
-        </div>
-        <img id="lightbox-image" alt="" />
-        <p id="lightbox-caption"></p>
-      </div>
-    </div>
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "KOOKAI",
+        "@type": ["BarOrPub", "LocalBusiness"],
+        "@id": "https://lucamarastoni.github.io/kookai/#kookai",
+        "name": "KOOKAI Cocktail Bar",
+        "url": "https://lucamarastoni.github.io/kookai/",
+        "image": "https://lucamarastoni.github.io/kookai/assets/img/og-cover.svg",
+        "telephone": "+39 345 705 8433",
+        "priceRange": "EUR 10-30",
         "address": {
           "@type": "PostalAddress",
-        "streetAddress": "Via Marconi 66",
-        "addressLocality": "Castel d'Azzano",
-        "addressRegion": "VR",
-        "postalCode": "37060",
-        "addressCountry": "IT"
-      },
-      "telephone": "+39 045 0000000",
-      "openingHours": [
-        "Mo closed",
-        "Tu 18:00-02:00",
-        "We 18:00-02:00",
-        "Th 18:00-02:00",
-        "Fr 18:00-02:00",
-        "Sa 18:00-02:00",
-        "Su 18:00-00:00"
-      ],
-        "sameAs": ["https://instagram.com"]
+          "streetAddress": "Via Marconi 66",
+          "postalCode": "37060",
+          "addressLocality": "Castel d'Azzano",
+          "addressRegion": "VR",
+          "addressCountry": "IT"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 45.3568457,
+          "longitude": 10.9459968
+        },
+        "hasMap": "https://maps.google.com/?q=Via%20Marconi%2066%2C%2037060%20Castel%20d%27Azzano%20(VR)%2C%20Italia",
+        "sameAs": ["https://www.instagram.com/"],
+        "openingHours": "Mo off",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "https://schema.org/Tuesday",
+              "https://schema.org/Wednesday",
+              "https://schema.org/Thursday"
+            ],
+            "opens": "18:00",
+            "closes": "01:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["https://schema.org/Friday", "https://schema.org/Saturday"],
+            "opens": "18:00",
+            "closes": "02:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "https://schema.org/Sunday",
+            "opens": "17:30",
+            "closes": "00:00"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "7",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
       }
     </script>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
