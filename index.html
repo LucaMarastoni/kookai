@@ -59,28 +59,46 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body id="top">
+  <body id="top" data-wa="393457058433">
     <a class="skip-link" href="#hero">Salta al contenuto</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Torna in cima">
-          <img src="assets/icons/icon.jpg" alt="Logo KOOKAI" width="40" height="40" loading="eager" />
-          <span>KOOKAI</span>
+        <a class="logo" href="#hero" aria-label="Torna alla home">
+          <img
+            class="logo-mark"
+            src="assets/icons/icon.jpg"
+            alt="Logo KOOKAI"
+            width="40"
+            height="40"
+            loading="eager"
+          />
+          <span class="logo-text">KOOKAI</span>
         </a>
 
-        <a
-          class="btn btn-primary header-book"
-          href="tel:+393457058433"
-          aria-label="Prenota chiamando"
-          >PRENOTA</a
-        >
+        <nav class="site-nav" aria-label="Sezioni principali">
+          <a href="#orari">Orari</a>
+          <a href="#mappa">Mappa</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#recensioni">Recensioni</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
+
+        <div class="header-cta">
+          <a
+            class="btn btn-cta"
+            href="https://wa.me/393457058433?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20da%20KOOKAI"
+            target="_blank"
+            rel="noopener"
+            aria-label="Prenota su WhatsApp"
+            >Prenota</a
+          >
+        </div>
 
         <button
           class="nav-toggle"
           type="button"
-          data-nav-toggle
-          aria-controls="site-nav"
+          aria-controls="site-menu"
           aria-expanded="false"
           aria-label="Apri menu"
         >
@@ -88,16 +106,16 @@
           <span class="nav-toggle-line"></span>
           <span class="nav-toggle-line"></span>
         </button>
-
-        <nav class="site-nav" id="site-nav" data-nav aria-label="Sezioni principali">
-          <a href="#orari">Orari</a>
-          <a href="#mappa">Mappa</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#recensioni">Recensioni</a>
-          <a href="#contatti">Contatti</a>
-        </nav>
       </div>
     </header>
+    <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
+    <nav class="nav-menu" id="site-menu" aria-label="Menu" aria-hidden="true">
+      <a href="#orari">Orari</a>
+      <a href="#mappa">Mappa</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
 
     <main>
       <section class="hero reveal" id="hero">

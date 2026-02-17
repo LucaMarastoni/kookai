@@ -2,48 +2,51 @@ document.documentElement.classList.add("js");
 
 const body = document.body;
 const header = document.querySelector(".site-header");
-const navToggle = document.querySelector("[data-nav-toggle]");
-const navMenu = document.querySelector("[data-nav]");
-const navLinks = navMenu ? Array.from(navMenu.querySelectorAll("a")) : [];
+const navToggle = document.querySelector(".nav-toggle");
+const mobileMenu = document.getElementById("site-menu");
+const navOverlay = document.querySelector("[data-nav-overlay]");
+const mobileMenuLinks = mobileMenu
+  ? Array.from(mobileMenu.querySelectorAll('a[href^="#"]'))
+  : [];
+const desktopNavLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-const closeMenu = () => {
-  if (!navToggle) return;
-  body.classList.remove("nav-open");
-  navToggle.setAttribute("aria-expanded", "false");
-  navToggle.setAttribute("aria-label", "Apri menu");
+const setMenuState = (open) => {
+  if (!navToggle || !mobileMenu || !navOverlay) return;
+  body.classList.toggle("menu-open", open);
+  navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  navToggle.setAttribute("aria-label", open ? "Chiudi menu" : "Apri menu");
+  mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+  navOverlay.setAttribute("aria-hidden", open ? "false" : "true");
 };
 
-const openMenu = () => {
-  if (!navToggle) return;
-  body.classList.add("nav-open");
-  navToggle.setAttribute("aria-expanded", "true");
-  navToggle.setAttribute("aria-label", "Chiudi menu");
-};
+const closeMenu = () => setMenuState(false);
 
-if (navToggle && navMenu) {
+if (navToggle && mobileMenu && navOverlay) {
+  setMenuState(false);
+
   navToggle.addEventListener("click", () => {
-    if (body.classList.contains("nav-open")) {
-      closeMenu();
-      return;
-    }
-    openMenu();
+    setMenuState(!body.classList.contains("menu-open"));
   });
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!body.classList.contains("nav-open")) return;
-    const target = event.target;
-    if (!(target instanceof Node)) return;
-    if (navMenu.contains(target) || navToggle.contains(target)) return;
+  navOverlay.addEventListener("click", () => {
     closeMenu();
   });
 
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && body.classList.contains("menu-open")) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768 && body.classList.contains("menu-open")) {
       closeMenu();
     }
   });
@@ -93,12 +96,42 @@ window.addEventListener("load", () => {
   }, 60);
 });
 
+if (desktopNavLinks.length && "IntersectionObserver" in window) {
+  const desktopTargets = desktopNavLinks
+    .map((link) => link.getAttribute("href"))
+    .filter((href) => href && href.startsWith("#"))
+    .map((href) => document.querySelector(href))
+    .filter(Boolean);
+
+  const setActiveLink = (id) => {
+    desktopNavLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    },
+    {
+      rootMargin: "-45% 0px -45% 0px",
+      threshold: 0.05,
+    }
+  );
+
+  desktopTargets.forEach((section) => navObserver.observe(section));
+}
+
 const revealItems = Array.from(document.querySelectorAll(".reveal"));
 
 if (!revealItems.length || prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 } else {
-  const observer = new IntersectionObserver(
+  const revealObserver = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -112,5 +145,5 @@ if (!revealItems.length || prefersReducedMotion.matches || !("IntersectionObserv
     }
   );
 
-  revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => revealObserver.observe(item));
 }
